@@ -1,6 +1,5 @@
-require "booger/version"
-
-module Booger
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "booger/version"
+require_relative "booger/inspector"
+require_relative "booger/commands"
+require_relative "booger/repl"
+require_relative "booger/binding_ext"
