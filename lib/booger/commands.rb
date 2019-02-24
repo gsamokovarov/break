@@ -14,7 +14,7 @@ module Booger
         current.stop
       end
 
-      command :stop do
+      command :continue, short: :c do
         current.stop
       end
     end
