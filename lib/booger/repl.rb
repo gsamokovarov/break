@@ -11,14 +11,16 @@ module Booger
     end
 
     def start(inspector)
-      puts @workspace.code_around_binding
-
       @binding.receiver.singleton_class.prepend(Commands.new(inspector))
       @irb.run(IRB.conf)
     end
 
     def stop
       @irb.context.exit
+    end
+
+    def code_extract
+      @workspace.code_around_binding
     end
   end
 end

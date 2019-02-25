@@ -6,11 +6,16 @@ module Booger
     end
 
     def start
+      puts code_extract
       @repl.start(self)
     end
 
     def stop
       @repl.stop
+    end
+
+    def code_extract
+      @repl.code_extract
     end
 
     def path

@@ -17,6 +17,10 @@ module Booger
       command :continue, short: :c do
         current.stop
       end
+
+      command :list, short: :ls do
+        puts current.code_extract
+      end
     end
 
     def command(name, short: nil, &block)
