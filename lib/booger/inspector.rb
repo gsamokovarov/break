@@ -25,5 +25,9 @@ module Booger
     def lineno
       @binding.source_location.last
     end
+
+    def inspect
+      "#{path}:#{lineno}"
+    end
   end
 end
