@@ -1,55 +1,22 @@
 module Boogah
   class Commands < Module
     def initialize(current)
-      command :next, short: :n do
-        TracePoint.trace(:line) do |trace|
-          next unless current.path == trace.path
-          next unless trace.lineno == current.lineno + 1
-
-          trace.disable
-
-          inspector = Inspector.new(trace.binding)
-          inspector.start
-        end
-
-        current.stop
-      end
-
-      command :continue, short: :c do
-        current.stop
-      end
-
-      command :list, short: :ls do
-        puts current.code_extract
-      end
-
-      command :step, short: :s do
-        TracePoint.trace(:call, :line) do |trace|
-          case trace.event
-          when :line
-            next unless current.path == trace.path
-            next unless [current.lineno, current.lineno + 1].include?(trace.lineno)
-          when :call
-            caller = trace.self.send(:caller_locations)[1]
-
-            next unless caller
-            next unless current.path == caller.path
-            next unless [current.lineno, current.lineno + 1].include?(caller.lineno)
-          end
-
-          trace.disable
-
-          inspector = Inspector.new(trace.binding)
-          inspector.start
-        end
-
-        current.stop
-      end
+      require_command { "commands/next" }
+      require_command { "commands/step" }
+      require_command { "commands/continue" }
+      require_command { "commands/list" }
     end
 
     def command(name, short: nil, &block)
       define_method(name, &block)
       alias_method short, name if short
+    end
+
+    def require_command(&block)
+      filename = block.call
+      filename += ".rb" unless filename.end_with?(".rb")
+
+      block.binding.eval(Pathname.new(__dir__).join(filename).read)
     end
   end
 end
