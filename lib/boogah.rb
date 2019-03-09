@@ -1,0 +1,5 @@
+require_relative "boogah/version"
+require_relative "boogah/inspector"
+require_relative "boogah/commands"
+require_relative "boogah/repl"
+require_relative "boogah/binding_ext"

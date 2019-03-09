@@ -1,4 +1,4 @@
-module Booger
+module Boogah
   class Inspector
     def initialize(binding)
       @binding = binding

@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "booger/version"
+require "boogah/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "booger"
-  spec.version       = Booger::VERSION
+  spec.name          = "boogah"
+  spec.version       = Boogah::VERSION
   spec.authors       = ["Genadi Samokovarov"]
   spec.email         = ["gsamokovarov@gmail.com"]
 

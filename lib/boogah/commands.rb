@@ -1,4 +1,4 @@
-module Booger
+module Boogah
   class Commands < Module
     def initialize(current)
       command :next, short: :n do

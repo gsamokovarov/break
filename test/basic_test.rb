@@ -1,9 +1,9 @@
-require_relative "../lib/booger"
+require_relative "../lib/boogah"
 
 def test_for_next
   result = 42
   result += 1
-  binding.booger
+  binding.boogah
   result = sum(result, 2)
   result
   result
@@ -13,7 +13,7 @@ end
 def test_for_next_with_error_on_the_next_line
   result = 42
   result += 1
-  binding.booger
+  binding.boogah
   resutt += 2
   result
 end
