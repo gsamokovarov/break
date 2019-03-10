@@ -1,7 +1,7 @@
 command :next, short: :n do
   TracePoint.trace(:line) do |trace|
-    next unless current.path == trace.path
-    next unless trace.lineno == current.lineno + 1
+    next if Filter.internal?(trace.path)
+    next unless Filter.next_to?(current, trace)
 
     trace.disable
 
