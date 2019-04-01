@@ -1,6 +1,6 @@
 class Binding
   def boogah
-    inspector = Boogah::Inspector.new(self)
-    inspector.start
+    context = Boogah::Context.new(self)
+    context.start
   end
 end

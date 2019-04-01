@@ -12,8 +12,8 @@ command :step, short: :s do
 
     trace.disable
 
-    inspector = Inspector.new(trace.binding)
-    inspector.start
+    context = Context.new(trace.binding)
+    context.start
   end
 
   current.stop

@@ -1,5 +1,5 @@
 require_relative "boogah/version"
-require_relative "boogah/inspector"
+require_relative "boogah/context"
 require_relative "boogah/commands"
 require_relative "boogah/filter"
 require_relative "boogah/repl"

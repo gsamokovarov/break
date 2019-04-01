@@ -10,8 +10,8 @@ module Boogah
       @irb = IRB::Irb.new(@workspace)
     end
 
-    def start(inspector)
-      @binding.receiver.singleton_class.prepend(Commands.new(inspector))
+    def start(context)
+      @binding.receiver.singleton_class.prepend(Commands.new(context))
       @irb.run(IRB.conf)
     end
 
