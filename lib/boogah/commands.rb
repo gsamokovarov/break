@@ -6,6 +6,7 @@ module Boogah
       require_command { "commands/next" }
       require_command { "commands/step" }
       require_command { "commands/up" }
+      require_command { "commands/down" }
       require_command { "commands/continue" }
       require_command { "commands/list" }
     end

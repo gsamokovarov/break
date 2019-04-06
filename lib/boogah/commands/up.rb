@@ -1,6 +1,6 @@
-command :up do
-  unless current.frames.size > 1
-    next puts "Cannot go up the stack"
+command :up, short: :u do
+  unless current.frames[current.depth - 2]
+    next puts "Cannot go further up the stack"
   end
 
   TracePoint.trace do |trace|
@@ -8,7 +8,7 @@ command :up do
 
     trace.disable
 
-    context = Context.new(current.frames[0...-1])
+    context = Context.new(current.frames, depth: current.depth - 1)
     context.start
   end
 
