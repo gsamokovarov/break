@@ -3,12 +3,9 @@ require "pathname"
 module Boogah
   class Commands < Module
     def initialize(current)
-      require_command { "commands/next" }
-      require_command { "commands/step" }
-      require_command { "commands/up" }
-      require_command { "commands/down" }
-      require_command { "commands/continue" }
-      require_command { "commands/list" }
+      Dir.each_child current_directory.join("commands") do |cmd|
+        require_command { "commands/#{cmd}" }
+      end
     end
 
     def command(name, short: nil, &block)
@@ -20,7 +17,13 @@ module Boogah
       filename = block.call
       filename += ".rb" unless filename.end_with?(".rb")
 
-      block.binding.eval(Pathname.new(__dir__).join(filename).read)
+      block.binding.eval(current_directory.join(filename).read)
+    end
+
+    private
+
+    def current_directory
+      Pathname.new(__dir__)
     end
   end
 end
