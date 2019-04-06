@@ -5,6 +5,7 @@ module Boogah
     def initialize(current)
       require_command { "commands/next" }
       require_command { "commands/step" }
+      require_command { "commands/up" }
       require_command { "commands/continue" }
       require_command { "commands/list" }
     end
