@@ -12,7 +12,7 @@ command :step, short: :s do
 
     trace.disable
 
-    context = Context.new(trace.binding)
+    context = Context.new([*current.frames, trace.binding])
     context.start
   end
 

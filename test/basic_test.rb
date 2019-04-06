@@ -5,15 +5,15 @@ def test_for_next
   result += 1
   binding.boogah
   result = sum(result, 2)
-  result
+  result += 1
   result
   result
 end
 
 def test_for_next_with_error_on_the_next_line
   result = 42
-  result += 1
   binding.boogah
+  result += 1
   resutt += 2
   result
 end
@@ -23,4 +23,5 @@ def sum(a, b)
 end
 
 puts test_for_next
+a = 1 + 2
 puts "SUCCESS!"

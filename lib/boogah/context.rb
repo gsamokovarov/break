@@ -1,8 +1,13 @@
 module Boogah
   class Context
-    def initialize(binding)
-      @binding = binding
-      @repl = REPL.new(@binding)
+    attr_accessor :frames
+    attr_accessor :depth
+
+    def initialize(frames, depth: 0)
+      @frames = frames
+      @depth = depth
+
+      @repl = REPL.new(current_binding)
     end
 
     def start
@@ -19,15 +24,21 @@ module Boogah
     end
 
     def path
-      @binding.source_location.first
+      current_binding.source_location.first
     end
 
     def lineno
-      @binding.source_location.last
+      current_binding.source_location.last
     end
 
     def inspect
       "#{path}:#{lineno}"
+    end
+
+    private
+
+    def current_binding
+      @frames[@depth - 1]
     end
   end
 end

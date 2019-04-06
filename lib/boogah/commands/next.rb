@@ -1,12 +1,22 @@
 command :next, short: :n do
-  TracePoint.trace(:line) do |trace|
+  TracePoint.trace(:line, :call, :return) do |trace|
     next if Filter.internal?(trace.path)
-    next unless Filter.next_to?(current, trace)
 
-    trace.disable
+    case trace.event
+    when :call
+      current.frames << trace.binding
+      current.depth += 1
+    when :return
+      current.frames.pop
+      current.depth -= 1
+    when :line
+      next if current.depth.positive?
 
-    context = Context.new(trace.binding)
-    context.start
+      trace.disable
+
+      context = Context.new([*current.frames[0...-1], trace.binding])
+      context.start
+    end
   end
 
   current.stop
