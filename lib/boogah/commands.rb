@@ -1,3 +1,5 @@
+require "pathname"
+
 module Boogah
   class Commands < Module
     def initialize(current)
