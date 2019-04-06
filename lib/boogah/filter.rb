@@ -11,5 +11,10 @@ module Boogah
         path.include?(IRB_MAGIC_LOCATION) ||
         path.include?(BOOGAH_LOCATION)
     end
+
+    def same_line?(current, target)
+      current.path == target.path &&
+        current.lineno == target.lineno
+    end
   end
 end
