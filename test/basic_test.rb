@@ -1,5 +1,13 @@
 require_relative "../lib/boogah"
 
+binding.boogah
+
+class Foo
+  x = 2
+  y = 3
+  x + y
+end
+
 def test_for_next
   result = 42
   result += 1
