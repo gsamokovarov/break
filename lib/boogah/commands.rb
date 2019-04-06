@@ -13,14 +13,14 @@ module Boogah
       alias_method short, name if short
     end
 
+    private
+
     def require_command(&block)
       filename = block.call
       filename += ".rb" unless filename.end_with?(".rb")
 
       block.binding.eval(current_directory.join(filename).read)
     end
-
-    private
 
     def current_directory
       Pathname.new(__dir__)
