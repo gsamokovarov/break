@@ -11,6 +11,7 @@ command :next, short: :n do
       current.depth -= 1
     when :line
       next if current.depth.positive?
+      next if current.valid? && Filter.same_line?(current, trace)
 
       trace.disable
 
