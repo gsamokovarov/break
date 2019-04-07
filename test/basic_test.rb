@@ -8,7 +8,7 @@ class Foo
   x + y
 end
 
-def test_for_next
+def test_basic_call
   result = 42
   result += 1
   binding.boogah
@@ -18,10 +18,9 @@ def test_for_next
   result
 end
 
-def test_for_next_with_error_on_the_next_line
-  result = 42
+def test_crashing_program
+  result = 40
   binding.boogah
-  result += 1
   resutt += 2
   result
 end
@@ -30,6 +29,7 @@ def sum(a, b)
   a + b
 end
 
-puts test_for_next
-a = 1 + 2
-puts "SUCCESS!"
+puts test_basic_call
+puts test_crashing_program rescue nil
+expression = :unused.to_s + "variable"
+puts "END OF RUN"
