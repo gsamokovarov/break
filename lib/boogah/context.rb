@@ -3,7 +3,7 @@ module Boogah
     attr_accessor :frames
     attr_accessor :depth
 
-    def initialize(frames, depth: 0)
+    def initialize(*frames, depth: 0)
       @frames = frames
       @depth = depth
 

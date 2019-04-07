@@ -8,7 +8,7 @@ command :up, short: :u do
 
     trace.disable
 
-    context = Context.new(current.frames, depth: current.depth - 1)
+    context = Context.new(*current.frames, depth: current.depth - 1)
     context.start
   end
 
