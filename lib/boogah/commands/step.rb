@@ -1,5 +1,5 @@
 command :step, short: :s do
-  TracePoint.trace(:call, :return, :line, :raise) do |trace|
+  TracePoint.trace(:call, :return, :line) do |trace|
     next if Filter.internal?(trace.path)
 
     case trace.event
@@ -11,7 +11,7 @@ command :step, short: :s do
     when :return
       current.frames.pop
       current.depth -= 1
-    when :line, :raise
+    when :line
       next if current.depth.positive?
       next if current.valid? && Filter.same_line?(current, trace)
 
