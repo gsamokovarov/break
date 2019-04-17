@@ -1,12 +1,12 @@
 command :next, short: :n do
-  TracePoint.trace(:line, :call, :return) do |trace|
+  TracePoint.trace(:line, :call, :return, :class, :end) do |trace|
     next if Filter.internal?(trace.path)
 
     case trace.event
-    when :call
+    when :call, :class
       current.frames << trace.binding
       current.depth += 1
-    when :return
+    when :return, :end
       current.frames.pop
       current.depth -= 1
     when :line
