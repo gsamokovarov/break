@@ -19,7 +19,7 @@ module Boogah
       filename = block.call
       filename += ".rb" unless filename.end_with?(".rb")
 
-      block.binding.eval(current_directory.join(filename).read)
+      block.binding.eval current_directory.join(filename).read
     end
 
     def current_directory

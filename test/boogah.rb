@@ -12,6 +12,9 @@ def test_basic_call
   result = 42
   result += 1
   binding.boogah
+  4.times do
+    result = sum(result, 2)
+  end
   result = sum(result, 2)
   result += 1
   result
