@@ -1,6 +1,6 @@
 require "pathname"
 
-module Boogah
+module Break
   class Commands < Module
     def initialize(current)
       Dir.each_child current_directory.join("commands") do |cmd|

@@ -1,0 +1,6 @@
+require_relative "break/version"
+require_relative "break/context"
+require_relative "break/commands"
+require_relative "break/filter"
+require_relative "break/repl"
+require_relative "break/binding_ext"

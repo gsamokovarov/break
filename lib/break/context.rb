@@ -1,4 +1,4 @@
-module Boogah
+module Break
   class Context
     attr_accessor :frames
     attr_accessor :depth

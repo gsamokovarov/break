@@ -1,6 +1,6 @@
 require "irb"
 
-module Boogah
+module Break
   module Filter extend self
     IRB_LOCATION = IRB.method(:start).source_location.first.chomp(".rb")
     IRB_MAGIC_LOCATION = "(irb)"

@@ -1,6 +1,6 @@
-require_relative "../lib/boogah"
+require_relative "../lib/break"
 
-binding.boogah
+binding.break
 
 class Foo
   x = 2
@@ -11,7 +11,7 @@ end
 def test_basic_call
   result = 42
   result += 1
-  binding.boogah
+  binding.break
   4.times do
     result = sum(result, 2)
   end
@@ -23,7 +23,7 @@ end
 
 def test_crashing_program
   result = 40
-  binding.boogah
+  binding.break
   resutt += 2
   result
 end

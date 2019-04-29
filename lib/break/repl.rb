@@ -1,6 +1,6 @@
 require "irb"
 
-module Boogah
+module Break
   class REPL
     def initialize(binding)
       IRB.setup(caller_locations.first.path, argv: [])

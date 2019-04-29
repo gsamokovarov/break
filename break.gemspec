@@ -1,17 +1,16 @@
-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "boogah/version"
+require "break/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "boogah"
-  spec.version       = Boogah::VERSION
+  spec.name          = "break"
+  spec.version       = Break::VERSION
   spec.authors       = ["Genadi Samokovarov"]
   spec.email         = ["gsamokovarov@gmail.com"]
 
-  spec.summary       = "Proof of concept debugger in plain Ruby"
-  spec.description   = "Proof of concept debugger in plain Ruby"
-  spec.homepage      = "https://github.com/gsamokovarov/boogah"
+  spec.summary       = "Experimental debugger in plain Ruby"
+  spec.description   = "Experimental debugger in plain Ruby using the TracePoint API"
+  spec.homepage      = "https://github.com/gsamokovarov/break"
   spec.license       = "MIT"
 
   spec.bindir        = "exe"
