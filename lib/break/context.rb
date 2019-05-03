@@ -35,10 +35,6 @@ module Break
       "#{path}:#{lineno}"
     end
 
-    def valid?
-      !current_binding.nil?
-    end
-
     private
 
     def current_binding
