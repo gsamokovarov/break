@@ -3,7 +3,7 @@ require "irb"
 module Break
   class REPL
     def initialize(binding)
-      IRB.setup(caller_locations.first.path, argv: [])
+      IRB.setup caller_locations.first.path, argv: %w(--prompt=simple)
 
       @binding = binding
       @workspace = IRB::WorkSpace.new(@binding)
