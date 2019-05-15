@@ -8,7 +8,7 @@ command :next, short: :n do
       current.depth += 1
     when :return, :end
       current.frames.pop
-      current.depth -= 1
+      current.depth -= 1 unless current.depth.zero?
     when :line
       next unless current.depth.zero?
 
