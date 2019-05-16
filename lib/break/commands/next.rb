@@ -8,9 +8,9 @@ command :next, short: :n do
       current.depth += 1
     when :return, :end
       current.frames.pop
-      current.depth -= 1 unless current.depth.zero?
+      current.depth -= 1
     when :line
-      next unless current.depth.zero?
+      next if current.depth.positive?
 
       trace.disable
 
