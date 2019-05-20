@@ -7,20 +7,20 @@ module Break
       @frames = frames
       @depth = depth
 
-      @repl = REPL.new(current_binding)
+      @frontend = Frontend.new(current_binding)
     end
 
     def start
       puts code_extract
-      @repl.start(self)
+      @frontend.start(self)
     end
 
     def stop
-      @repl.stop
+      @frontend.stop
     end
 
     def code_extract
-      @repl.code_extract
+      @frontend.code_extract
     end
 
     def path

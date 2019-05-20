@@ -11,6 +11,7 @@ module Break
     end
 
     def start(context)
+      puts code_extract
       @binding.receiver.singleton_class.prepend(Commands.new(context))
       @irb.run(IRB.conf)
     end
