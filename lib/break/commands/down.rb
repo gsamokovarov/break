@@ -1,6 +1,6 @@
 command :down, short: :d do
   if current.depth >= 0
-    next puts "Cannot go further down the stack"
+    next current.frontend.notify("Cannot go further down the stack")
   end
 
   TracePoint.trace do |trace|

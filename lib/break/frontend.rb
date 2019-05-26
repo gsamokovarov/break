@@ -10,18 +10,23 @@ module Break
       @irb = IRB::Irb.new(@workspace)
     end
 
-    def start(context)
-      puts code_extract
+    def attach(context)
+      where
+
       @binding.receiver.singleton_class.prepend(Commands.new(context))
       @irb.run(IRB.conf)
     end
 
-    def stop
+    def detach
       @irb.context.exit
     end
 
-    def code_extract
-      @workspace.code_around_binding
+    def where
+      puts @workspace.code_around_binding
+    end
+
+    def notify(message)
+      puts message
     end
   end
 end

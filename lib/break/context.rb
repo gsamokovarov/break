@@ -3,6 +3,8 @@ module Break
     attr_accessor :frames
     attr_accessor :depth
 
+    attr_reader :frontend
+
     def initialize(*frames, depth: 0, frontend: Frontend)
       @frames = frames
       @depth = depth
@@ -11,15 +13,11 @@ module Break
     end
 
     def start
-      @frontend.start(self)
+      @frontend.attach(self)
     end
 
     def stop
-      @frontend.stop
-    end
-
-    def code_extract
-      @frontend.code_extract
+      @frontend.detach
     end
 
     def path

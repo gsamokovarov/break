@@ -1,6 +1,6 @@
 command :up, short: :u do
   unless current.frames[current.depth - 2]
-    next puts "Cannot go further up the stack"
+    next current.frontend.notify("Cannot go further up the stack")
   end
 
   TracePoint.trace do |trace|
