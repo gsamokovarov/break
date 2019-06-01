@@ -7,9 +7,9 @@ module Break
     end
 
     def attach(session)
-      session.context.current_frame.receiver.singleton_class.prepend(Commands.new(session))
+      session.context.binding.receiver.singleton_class.prepend(Commands.new(session))
 
-      @workspace = IRB::WorkSpace.new(session.context.current_frame)
+      @workspace = IRB::WorkSpace.new(session.context.binding)
       @irb = IRB::Irb.new(@workspace)
 
       where

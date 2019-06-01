@@ -8,7 +8,7 @@ module Break
       @depth = depth
     end
 
-    def current_frame
+    def binding
       @frames[@depth - 1]
     end
 

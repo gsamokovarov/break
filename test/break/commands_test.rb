@@ -8,7 +8,7 @@ module Break
       Commands.execute session, :next
       frontend = TestingFrontend.last
 
-      assert_equal [__FILE__, __LINE__ - 2], session.context.current_frame.source_location
+      assert_equal [__FILE__, __LINE__ - 2], session.context.binding.source_location
     end
   end
 end
