@@ -3,13 +3,15 @@ module Break
     attr_accessor :frames
     attr_accessor :depth
 
+    attr_reader :frontend_class
     attr_reader :frontend
 
-    def initialize(*frames, depth: 0, frontend: Frontend)
+    def initialize(*frames, depth: 0, frontend_class: Frontend)
       @frames = frames
       @depth = depth
 
-      @frontend = frontend.new(current_binding)
+      @frontend_class = frontend_class
+      @frontend = frontend_class.new(current_binding)
     end
 
     def start

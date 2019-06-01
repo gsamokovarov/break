@@ -14,7 +14,8 @@ command :next, short: :n do
 
       trace.disable
 
-      context = Context.new(*current.frames[0...-1], trace.binding, frontend: current.frontend.class)
+      context = Context.new(*current.frames[0...-1], trace.binding,
+                            frontend_class: current.frontend_class)
       context.start
     end
   end

@@ -8,7 +8,7 @@ command :up, short: :u do
 
     trace.disable
 
-    context = Context.new(*current.frames, depth: current.depth - 1, frontend: current.frontend.class)
+    context = Context.new(*current.frames, depth: current.depth - 1, frontend_class: current.frontend_class)
     context.start
   end
 
