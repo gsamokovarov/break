@@ -6,7 +6,7 @@ command :step, short: :s do
     when :call, :class
       trace.disable
 
-      context = Context.new(*current.frames, trace.binding)
+      context = Context.new(*current.frames, trace.binding, frontend: current.frontend.class)
       context.start
     when :return, :end
       current.frames.pop
@@ -16,7 +16,7 @@ command :step, short: :s do
 
       trace.disable
 
-      context = Context.new(*current.frames[0...-1], trace.binding)
+      context = Context.new(*current.frames[0...-1], trace.binding, frontend: current.frontend.class)
       context.start
     end
   end
