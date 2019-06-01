@@ -8,7 +8,7 @@ command :down, short: :d do
 
     trace.disable
 
-    current.context!(*current.context.frames, depth: current.context.depth + 1)
+    current.context!(*current.context.bindings, depth: current.context.depth + 1)
   end
 
   current.leave

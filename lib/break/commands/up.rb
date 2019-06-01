@@ -1,5 +1,5 @@
 command :up, short: :u do
-  unless current.context.frames[current.context.depth - 2]
+  unless current.context.bindings[current.context.depth - 2]
     next current.frontend.notify("Cannot go further up the stack")
   end
 
@@ -8,7 +8,7 @@ command :up, short: :u do
 
     trace.disable
 
-    current.context!(*current.context.frames, depth: current.context.depth - 1)
+    current.context!(*current.context.bindings, depth: current.context.depth - 1)
   end
 
   current.leave

@@ -24,8 +24,8 @@ module Break
       contexts.last
     end
 
-    def context!(*frames, depth: 0)
-      contexts << Context.new(*frames, depth: depth)
+    def context!(*bindings, depth: 0)
+      contexts << Context.new(*bindings, depth: depth)
       enter
     end
   end

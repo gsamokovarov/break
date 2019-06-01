@@ -6,16 +6,16 @@ command :step, short: :s do
     when :call, :class
       trace.disable
 
-      current.context!(*current.context.frames, trace.binding)
+      current.context!(*current.context.bindings, trace.binding)
     when :return, :end
-      current.context.frames.pop
+      current.context.bindings.pop
       current.context.depth -= 1
     when :line
       next if current.context.depth.positive?
 
       trace.disable
 
-      current.context!(*current.context.frames[0...-1], trace.binding)
+      current.context!(*current.context.bindings[0...-1], trace.binding)
     end
   end
 

@@ -1,15 +1,15 @@
 module Break
   class Context
-    attr_accessor :frames
+    attr_accessor :bindings
     attr_accessor :depth
 
-    def initialize(*frames, depth: 0)
-      @frames = frames
+    def initialize(*bindings, depth: 0)
+      @bindings = bindings
       @depth = depth
     end
 
     def binding
-      @frames[@depth - 1]
+      @bindings[@depth - 1]
     end
 
     def path

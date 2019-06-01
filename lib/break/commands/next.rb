@@ -4,17 +4,17 @@ command :next, short: :n do
 
     case trace.event
     when :call, :class
-      current.context.frames << trace.binding
+      current.context.bindings << trace.binding
       current.context.depth += 1
     when :return, :end
-      current.context.frames.pop
+      current.context.bindings.pop
       current.context.depth -= 1
     when :line
       next if current.context.depth.positive?
 
       trace.disable
 
-      current.context!(*current.context.frames[0...-1], trace.binding)
+      current.context!(*current.context.bindings[0...-1], trace.binding)
     end
   end
 
