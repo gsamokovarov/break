@@ -2,27 +2,26 @@ require "irb"
 
 module Break
   class Frontend
-    def initialize(binding)
+    def initialize
       IRB.setup caller_locations.first.path, argv: %w(--prompt=simple)
-
-      @binding = binding
-      @workspace = IRB::WorkSpace.new(@binding)
-      @irb = IRB::Irb.new(@workspace)
     end
 
-    def attach(context)
-      where
+    def attach(session)
+      session.context.current_frame.receiver.singleton_class.prepend(Commands.new(session))
 
-      @binding.receiver.singleton_class.prepend(Commands.new(context))
+      @workspace = IRB::WorkSpace.new(session.context.current_frame)
+      @irb = IRB::Irb.new(@workspace)
+
+      where
       @irb.run(IRB.conf)
     end
 
     def detach
-      @irb.context.exit
+      @irb&.context.exit
     end
 
     def where
-      puts @workspace.code_around_binding
+      puts @workspace&.code_around_binding
     end
 
     def notify(message)

@@ -24,15 +24,14 @@ module Break
       end
     end
 
-    attr_reader :binding
+    attr_reader :session
 
-    def initialize(binding)
+    def initialize
       self.class.stack << self
-
-      @binding = binding
     end
 
-    def attach(_context)
+    def attach(session)
+      @session = session
     end
 
     def detach

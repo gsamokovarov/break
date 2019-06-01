@@ -1,3 +1,3 @@
 command :continue, short: :c do
-  current.stop
+  current.leave
 end

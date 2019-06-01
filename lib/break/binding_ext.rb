@@ -1,7 +1,7 @@
 class Binding
   def break
-    context = Break::Context.new(self)
-    context.start
+    session = Break::Session.new(self, frontend: Break::Frontend.new)
+    session.enter
   end
 
   def source_location

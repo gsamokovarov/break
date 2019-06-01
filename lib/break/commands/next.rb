@@ -4,21 +4,19 @@ command :next, short: :n do
 
     case trace.event
     when :call, :class
-      current.frames << trace.binding
-      current.depth += 1
+      current.context.frames << trace.binding
+      current.context.depth += 1
     when :return, :end
-      current.frames.pop
-      current.depth -= 1
+      current.context.frames.pop
+      current.context.depth -= 1
     when :line
-      next if current.depth.positive?
+      next if current.context.depth.positive?
 
       trace.disable
 
-      context = Context.new(*current.frames[0...-1], trace.binding,
-                            frontend_class: current.frontend_class)
-      context.start
+      current.context!(*current.context.frames[0...-1], trace.binding)
     end
   end
 
-  current.stop
+  current.leave
 end

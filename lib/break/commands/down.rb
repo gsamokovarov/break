@@ -1,5 +1,5 @@
 command :down, short: :d do
-  if current.depth >= 0
+  if current.context.depth >= 0
     next current.frontend.notify("Cannot go further down the stack")
   end
 
@@ -8,10 +8,8 @@ command :down, short: :d do
 
     trace.disable
 
-    context = Context.new(*current.frames, depth: current.depth + 1,
-                          frontend_class: current_frontend)
-    context.start
+    current.context!(*current.context.frames, depth: current.context.depth + 1)
   end
 
-  current.stop
+  current.leave
 end

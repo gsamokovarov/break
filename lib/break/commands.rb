@@ -2,9 +2,9 @@ require "pathname"
 
 module Break
   class Commands < Module
-    def self.execute(context, command, *args)
+    def self.execute(session, command, *args)
       obj = Object.new
-      obj.extend Commands.new(context)
+      obj.extend Commands.new(session)
       obj.public_send(command, *args)
     end
 

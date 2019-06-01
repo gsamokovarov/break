@@ -15,7 +15,7 @@ module Break
       @irb.run(IRB.conf)
     end
 
-    def stop
+    def leave
       @irb.context.exit
     end
 

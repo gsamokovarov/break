@@ -1,4 +1,5 @@
 require_relative "break/version"
+require_relative "break/session"
 require_relative "break/context"
 require_relative "break/commands"
 require_relative "break/filter"

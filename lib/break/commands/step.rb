@@ -6,22 +6,18 @@ command :step, short: :s do
     when :call, :class
       trace.disable
 
-      context = Context.new(*current.frames, trace.binding,
-                            frontend_class: current.frontend_class)
-      context.start
+      current.context!(*current.context.frames, trace.binding)
     when :return, :end
-      current.frames.pop
-      current.depth -= 1
+      current.context.frames.pop
+      current.context.depth -= 1
     when :line
-      next if current.depth.positive?
+      next if current.context.depth.positive?
 
       trace.disable
 
-      context = Context.new(*current.frames[0...-1], trace.binding,
-                            frontend_class: current.frontend_class)
-      context.start
+      current.context!(*current.context.frames[0...-1], trace.binding)
     end
   end
 
-  current.stop
+  current.leave
 end
