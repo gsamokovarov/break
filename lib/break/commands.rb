@@ -24,8 +24,9 @@ module Break
     def require_command(&block)
       filename = block.call
       filename += ".rb" unless filename.end_with?(".rb")
+      filepath = current_directory.join(filename)
 
-      block.binding.eval current_directory.join(filename).read
+      block.binding.eval filepath.read, filepath.to_s, 1
     end
 
     def current_directory
