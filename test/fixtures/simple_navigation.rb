@@ -1,4 +1,4 @@
-require_relative "../lib/break"
+require_relative "../../lib/break"
 
 binding.break
 
