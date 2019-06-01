@@ -2,6 +2,12 @@ require "pathname"
 
 module Break
   class Commands < Module
+    def self.execute(context, command, *args)
+      obj = Object.new
+      obj.extend Commands.new(context)
+      obj.public_send(command, *args)
+    end
+
     def initialize(current)
       Dir.each_child current_directory.join("commands") do |cmd|
         require_command { "commands/#{cmd}" }
