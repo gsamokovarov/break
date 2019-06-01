@@ -17,7 +17,7 @@ module Break
     end
 
     def detach
-      @irb&.context.exit
+      @irb&.context&.exit
     end
 
     def where
