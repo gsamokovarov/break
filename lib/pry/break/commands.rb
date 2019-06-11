@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-module Pry
-  module Break
-    class NextCommand < Pry::ClassCommand
-      group "Break"
-      match "next"
-
-      description "Execute the next line within the current stack frame."
+module Pry::Break
+  Commands = Pry::CommandSet.new do
+    create_command "next", "Go to the next line." do
 
       banner <<-BANNER
         Usage: next
@@ -15,15 +11,26 @@ module Pry
       BANNER
 
       def process
-        return if check_multiline_context
+        frontend = Pry::Break::Frontend.new(_pry_)
+        session = ::Break::Session.new(_pry_.binding_stack.first, frontend: frontend)
 
-        context = ::Break::Context.new(_pry_.binding_stack.last, frontend_class: Frontend)
-
-        ::Break::Commands.execute context, :next
+        session.execute :next
       end
     end
 
-    Pry::Commands.add_command PryByebug::NextCommand
+    create_command "step", "Go to the next line." do
+      banner <<-BANNER
+        Usage: next
+        Step over within the same frame. Examples:
+          next #=> Move a line forward.
+      BANNER
+
+      def process
+        frontend = Pry::Break::Frontend.new(_pry_)
+        session = ::Break::Session.new(_pry_.binding_stack.first, frontend: frontend)
+
+        session.execute :step
+      end
+    end
   end
 end
-

@@ -9,6 +9,8 @@ module Break
       frontend = TestingFrontend.last
 
       assert_equal [__FILE__, __LINE__ - 2], session.context.binding.source_location
+    ensure
+      Commands.execute session, :continue
     end
   end
 end
