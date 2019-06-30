@@ -32,5 +32,24 @@ module Pry::Break
         session.execute :step
       end
     end
+
+    create_command "up", "Go up a frame." do
+      banner <<-BANNER
+        Usage: up
+
+        Go to the frame that called the current one. Can be used only if the
+        command `step` was issued before.
+
+        Examples:
+          up #=> Step into the method invocation.
+      BANNER
+
+      def process
+        frontend = Pry::Break::Frontend.new(_pry_)
+        session = ::Break::Session.new(_pry_.binding_stack.first, frontend: frontend)
+
+        session.execute :up
+      end
+    end
   end
 end
