@@ -18,11 +18,11 @@ module Pry::Break
       end
     end
 
-    create_command "step", "Go to the next line." do
+    create_command "step", "Step into the current line invocation." do
       banner <<-BANNER
-        Usage: next
-        Step over within the same frame. Examples:
-          next #=> Move a line forward.
+        Usage: step
+        Step into a method call. Examples:
+          step #=> Step into the method invocation.
       BANNER
 
       def process
