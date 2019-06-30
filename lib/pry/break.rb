@@ -12,4 +12,4 @@ Break::Filter.register_internal Pry.method(:start).source_location.first.chomp("
 Break::Filter.register_internal "(pry)"
 Break::Filter.register_internal __dir__
 
-Pvry.config.commands.import Pry::Break::Commands
+Pry.config.commands.import Pry::Break::Commands
