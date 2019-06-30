@@ -1,5 +1,3 @@
-require "irb"
-
 module Break
   module Filter extend self
     attr_reader :internal
