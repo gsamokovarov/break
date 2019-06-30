@@ -6,7 +6,10 @@ module Pry::Break
 
       banner <<-BANNER
         Usage: next
-        Step over within the same frame. Examples:
+
+        Step over within the same frame.
+
+        Examples:
           next #=> Move a line forward.
       BANNER
 
@@ -21,7 +24,10 @@ module Pry::Break
     create_command "step", "Step into the current line invocation." do
       banner <<-BANNER
         Usage: step
-        Step into a method call. Examples:
+
+        Step into a method call.
+
+        Examples:
           step #=> Step into the method invocation.
       BANNER
 
