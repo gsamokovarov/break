@@ -57,5 +57,24 @@ module Pry::Break
         session.execute :up
       end
     end
+
+    create_command "down", "Go down a frame." do
+      banner <<-BANNER
+        Usage: down
+
+        Go to the frame called from the current one. Can be used only if the
+        command `step` was issued before.
+
+        Examples:
+          down #=> Step to the previous frame.
+      BANNER
+
+      def process
+        frontend = Pry::Break::Frontend.new(_pry_)
+        session = ::Break::Session.new(_pry_.binding_stack.first, frontend: frontend)
+
+        session.execute :down
+      end
+    end
   end
 end
