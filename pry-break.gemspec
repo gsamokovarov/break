@@ -4,7 +4,7 @@ require "pry/break/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "pry-break"
-  spec.version       = Pry::Break::VERSION
+  spec.version       = Break::Pry::VERSION
   spec.authors       = ["Genadi Samokovarov"]
   spec.email         = ["gsamokovarov@gmail.com"]
 

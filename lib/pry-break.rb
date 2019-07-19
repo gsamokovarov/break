@@ -1,1 +1,3 @@
-require_relative "pry/break"
+# frozen_string_literal: true
+
+require_relative 'break/pry'
