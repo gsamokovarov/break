@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 command :step, short: :s do
   TracePoint.trace(:line, :call, :return, :class, :end) do |trace|
     next if Filter.internal?(trace.path)

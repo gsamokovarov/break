@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "minitest"
 
 module Break
@@ -34,14 +36,11 @@ module Break
       @session = session
     end
 
-    def detach
-    end
+    def detach; end
 
-    def where
-    end
+    def where; end
 
-    def notify(_message)
-    end
+    def notify(_message); end
   end
 
   class Test < Minitest::Test

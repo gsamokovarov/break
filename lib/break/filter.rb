@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 module Break
-  module Filter extend self
+  module Filter
+    extend self
+
     attr_reader :internal
 
     def register_internal(*paths)

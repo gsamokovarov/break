@@ -1,0 +1,179 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - app/views/**/*
+    - bin/**/*
+    - spec/**/*
+    - config/**/*
+    - lib/**/*
+    - tmp/**/*
+    - db/**/*
+    - Gemfile
+
+# This is for the APIs.
+Naming/PredicateName:
+  Enabled: false
+
+# I can set other things than accessors.
+Naming/AccessorMethodName:
+  Enabled: false
+
+# It's okay to sometimes use short names.
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
+# I'm getting old and liking those double quote strings more, as I write
+# n languages where they are the only ones. 😅
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Don't complain on missing documentation for every class.
+Style/Documentation:
+  Enabled: false
+
+# Disallow constructs like render :template and return.
+Style/AndOr:
+  Enabled: false
+
+# Let me write them typographic (–) dashes in comments.
+Style/AsciiComments:
+  Enabled: false
+
+# Since module_function is a visibility modifier, you can't have private
+# singleton methods. E.g. in some cases, we _do_ need to use extend self.
+Style/ModuleFunction:
+  Enabled: false
+
+# I think this results in uglier code, depending on the situation.
+#
+# Example:
+#
+#   if old_password or password
+#     change_password(old_password, password)
+#   end
+#
+# Versus:
+#
+#   change_password(old_password, password) if old_password or password
+#
+# It depends, but if I have a complex condition or a longer line, I prefer the
+# more explicit if condition.
+Style/IfUnlessModifier:
+  Enabled: false
+
+# Recently, I tend to prefer the named boolean operators. Yeah, they do have
+# different precedence, but still.
+Style/Not:
+  Enabled: false
+
+# I don't think this results in better code. We're flatting it out, while it is
+# really nested. Why hide that?
+Style/GuardClause:
+  Enabled: false
+
+# Inheriting from the Struct.new isn't so bad. Yeah, it creates a longer
+# ancestor chain, but I wanna grep classes, not DSL's.
+Style/StructInheritance:
+  Enabled: false
+
+Style/StabbyLambdaParentheses:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
+
+# No need for Ruby 1.9 compatible code.
+Layout/SpaceInLambdaLiteral:
+  Enabled: false
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+# Allow defining classes with short nesting like class Admin::AbuseController.
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# We had a failing test in invoiceable_spec. Let's keep it for now.
+Style/DateTime:
+  Enabled: false
+
+# This cop does not work well in heavy meta-programming cases, where the arity
+# of the block is of importance.
+#
+#  column :label do |key|
+#    key.label
+#  end
+#
+# Does not equal:
+#
+#  column :label, &label
+#
+# ... in the table_cloth case.
+Style/SymbolProc:
+  Enabled: false
+
+# I think it's safe to ignore the 80 chars limit.
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+# We have some big chunk of classes and methods. Reducing those metrics can
+# help us clean up the code.
+Metrics/ClassLength:
+  Max: 250
+Metrics/MethodLength:
+  Max: 70
+Metrics/BlockLength:
+  Max: 40
+Metrics/BlockNesting:
+  Max: 5
+Metrics/CyclomaticComplexity:
+  Max: 11
+Metrics/PerceivedComplexity:
+  Max: 13
+Metrics/ParameterLists:
+  Max: 8
+
+# Sometimes life leaves you no choice. True story.
+Lint/HandleExceptions:
+  Enabled: false
+
+# I use it. It's okay.
+Lint/AssignmentInCondition:
+  Enabled: false
+
+# Polymorphism may require it.
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+# It's okay to use class-global caching.
+Style/ClassVars:
+  Enabled: false
+
+# We have lot's of those, so disable it for now.
+Style/RescueStandardError:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+# It's a feature, not a bug.
+Style/OptionalArguments:
+  Enabled: false
+
+Layout/RescueEnsureAlignment:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/IndentFirstHashElement:
+  EnforcedStyle: consistent

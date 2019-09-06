@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require "irb"
 
 module Break
   class Frontend
     def initialize
-      IRB.setup caller_locations.first.path, argv: %w(--prompt=simple)
+      IRB.setup caller_locations.first.path, argv: %w[--prompt=simple]
     end
 
     def attach(session)

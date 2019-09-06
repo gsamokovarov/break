@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 command :down, short: :d do
   if current.context.depth >= 0
     next current.frontend.notify("Cannot go further down the stack")

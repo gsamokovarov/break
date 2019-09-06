@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 command :up, short: :u do
   unless current.context.bindings[current.context.depth - 2]
     next current.frontend.notify("Cannot go further up the stack")

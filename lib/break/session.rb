@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Break
   class Session
     attr_reader :contexts

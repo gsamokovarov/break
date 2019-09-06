@@ -2,8 +2,8 @@
 
 module Break::Pry
   Commands = Pry::CommandSet.new do
-    create_command 'next', 'Go to the next line.' do
-      group 'Break'
+    create_command "next", "Go to the next line." do
+      group "Break"
 
       banner <<-BANNER
         Usage: next
@@ -22,8 +22,8 @@ module Break::Pry
       end
     end
 
-    create_command 'step', 'Step into the current line invocation.' do
-      group 'Break'
+    create_command "step", "Step into the current line invocation." do
+      group "Break"
 
       banner <<-BANNER
         Usage: step
@@ -42,8 +42,8 @@ module Break::Pry
       end
     end
 
-    create_command 'up', 'Go up a frame.' do
-      group 'Break'
+    create_command "up", "Go up a frame." do
+      group "Break"
 
       banner <<-BANNER
         Usage: up
@@ -63,8 +63,8 @@ module Break::Pry
       end
     end
 
-    create_command 'down', 'Go down a frame.' do
-      group 'Break'
+    create_command "down", "Go down a frame." do
+      group "Break"
 
       banner <<-BANNER
         Usage: down
