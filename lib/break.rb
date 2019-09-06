@@ -9,3 +9,5 @@ require_relative "break/binding_ext"
 Break::Filter.register_internal IRB.method(:start).source_location.first.chomp(".rb")
 Break::Filter.register_internal "(irb)"
 Break::Filter.register_internal __dir__
+
+require_relative "break/pry" if defined?(Pry)
