@@ -7,7 +7,7 @@ seamlessly with IRB and [Pry] and you have commands like `next` (or the short-cu
 debugger or change your development flow. Break embraces it, instead of forcing
 you to learn a new tool.
 
-# Why we need a debugger in Ruby?
+## Why we need a debugger in Ruby?
 
 We had our fair share of abandoned Ruby debuggers written in C because their
 maintenance was pretty hard. Back in the 1.8 and 1.9 days the interpreter
@@ -31,7 +31,7 @@ The following commands are available in both IRB and [Pry].
 
 Command    | Short      | Description
 -------    | ---------- | -----------
-`next`     | `n`  (irb) | Continue to next line.
+`next`     | `n`  (irb) | Continue to next line. (In IRB, `next` is a syntax error, use `n`)
 `step`     | `s`  (irb) | Step into method invocation.
 `up`       | `u`  (irb) | Go up the stack.
 `down`     | `d`  (irb) | Go down the stack.
@@ -46,7 +46,7 @@ early in your program setup. In a Rails application, `break` will be required
 automatically and you don't need to worry about that.
 
 ```ruby
-gem "pry" # If you want PRY integration, require break after pry.
+gem "pry" # Require break after pry if you want Pry integration.
 gem "break"
 ```
 
