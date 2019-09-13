@@ -27,7 +27,7 @@ module Break
     end
 
     def where
-      puts @workspace&.code_around_binding
+      puts @workspace.code_around_binding if workspace
     end
 
     def notify(message)
