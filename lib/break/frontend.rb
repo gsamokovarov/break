@@ -5,11 +5,15 @@ require "irb"
 module Break
   class Frontend
     def initialize
-      IRB.setup caller_locations.first.path, argv: %w[--prompt=simple]
+      IRB.setup caller_locations.first.path, argv: []
     end
 
     def attach(session)
-      session.context.binding.receiver.singleton_class.prepend(Commands.new(session))
+      begin
+        session.context.binding.receiver.singleton_class.prepend(Commands.new(session))
+      rescue TypeError
+        return
+      end
 
       @workspace = IRB::WorkSpace.new(session.context.binding)
       @irb = IRB::Irb.new(@workspace)
