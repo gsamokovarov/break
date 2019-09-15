@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 module Break
@@ -17,7 +19,7 @@ module Break
       original_internal = [].concat(Filter.internal)
       Filter.register_internal(*paths)
       yield
-    ensure 
+    ensure
       Filter.internal.clear.concat(original_internal)
     end
   end
