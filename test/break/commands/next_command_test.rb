@@ -4,22 +4,24 @@ require "test_helper"
 
 module Break
   class NextCommandsTest < Test
-    test "increments the debugging context depth on :call and :class events" do
+    test "increments the debugging context depth on :call, :class and :b_call events" do
       command, session = next_command
 
       command.execute_trace trace(:call, binding: nil)
       command.execute_trace trace(:class, binding: nil)
+      command.execute_trace trace(:b_call, binding: nil)
 
-      assert_equal 2, session.context.depth
+      assert_equal 3, session.context.depth
     end
 
-    test "decrements the debugging context depth on :return and :end events" do
+    test "decrements the debugging context depth on :return, :end and :b_return events" do
       command, session = next_command
 
       command.execute_trace trace(:return, binding: nil)
       command.execute_trace trace(:end, binding: nil)
+      command.execute_trace trace(:b_return, binding: nil)
 
-      assert_equal(-2, session.context.depth)
+      assert_equal(-3, session.context.depth)
     end
 
     test "disables the current tracing on each step over" do

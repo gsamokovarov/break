@@ -4,14 +4,14 @@ module Break
   class NextCommand < TracePointCommand
     command :next, aliases: :n
 
-    trace :line, :call, :return, :class, :end
+    trace :line, :call, :return, :class, :end, :b_call, :b_return
 
     def execute_trace(trace, *)
       case trace.event
-      when :call, :class
+      when :call, :class, :b_call
         context.bindings << trace.binding
         context.depth += 1
-      when :return, :end
+      when :return, :end, :b_return
         context.bindings.pop
         context.depth -= 1
       when :line

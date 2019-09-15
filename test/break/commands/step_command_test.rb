@@ -4,7 +4,7 @@ require "test_helper"
 
 module Break
   class StepCommandsTest < Test
-    test "steps into :call and :class events" do
+    test "steps into :call, :class and :b_call events" do
       command, session = step_command
 
       command.execute_trace trace(:call, disable: nil, binding: -> { Kernel.binding })
@@ -12,15 +12,19 @@ module Break
 
       command.execute_trace trace(:class, disable: nil, binding: -> { Kernel.binding })
       assert_equal __LINE__ - 1, session.context.binding.source_location.last
+
+      command.execute_trace trace(:b_call, disable: nil, binding: -> { Kernel.binding })
+      assert_equal __LINE__ - 1, session.context.binding.source_location.last
     end
 
-    test "decrements the debugging context depth on :return and :end" do
+    test "decrements the debugging context depth on :return, :end and :b_return" do
       command, session = step_command
 
       command.execute_trace trace(:return, binding: binding)
       command.execute_trace trace(:end, binding: binding)
+      command.execute_trace trace(:b_return, binding: binding)
 
-      assert_equal(-2, session.context.depth)
+      assert_equal(-3, session.context.depth)
     end
 
     test "acts like step-over on :line events for convenience" do
