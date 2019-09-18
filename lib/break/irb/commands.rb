@@ -5,27 +5,25 @@ require "pathname"
 module Break::IRB
   class Commands < Module
     def initialize(session)
-      Break::Command.commands.each do |command_class|
-        define_command command_class, session
-      end
+      define_command session, :next,     Break::NextCommand
+      define_command session, :step,     Break::StepCommand
+      define_command session, :up,       Break::UpCommand
+      define_command session, :down,     Break::DownCommand
+      define_command session, :continue, Break::ContinueCommand, preserve: false
     end
 
     private
 
-    def define_command(command_class, session)
-      define_method(command_class.name) do |*args|
-        command_class.new(session).execute(*args)
+    def define_command(session, name, cls, preserve: true)
+      define_method(name) do |*args|
+        cls.new(session).execute(*args)
       ensure
         # We don't have a clear guideline of when an IRB session starts and
         # when it ends. If we're excuting commands, we have to quit the IRB
         # session which naturally marks it as stopped. If we're executing a
         # `break` command though we actually want to keep marking it as started
         # so we don't step over `binding.irb` calls.
-        Break::Session.start! unless command_class == Break::ContinueCommand
-      end
-
-      command_class.aliases.each do |alias_name|
-        alias_method alias_name, command_class.name
+        Break::Session.start! if preserve
       end
     end
   end

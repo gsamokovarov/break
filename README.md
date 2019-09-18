@@ -29,15 +29,15 @@ implementation is supported and under active development at the time.
 
 The following commands are available in both IRB and [Pry].
 
-Command    | Short      | Description
--------    | ---------- | -----------
-`next`     | `n`  (irb) | Continue to next line.
-`step`     | `s`  (irb) | Step into method invocation.
-`up`       | `u`  (irb) | Go up the stack.
-`down`     | `d`  (irb) | Go down the stack.
-`list`     | `ls` (irb) | Show the code surrounding the current debugged line.
-`continue` | `c`  (irb) | Disconnect the debugger and continue to run program.
-`exit`     |            | Disconnect the debugger and continue to run program.
+Command    | Description
+---------- | -----------
+`next`     | Continue to next line.
+`step`     | Step into method invocation.
+`up`       | Go up the stack.
+`down`     | Go down the stack.
+`list`     | Show the code surrounding the current debugged line.
+`continue` | Disconnect the debugger and continue to run program.
+`exit`     | Disconnect the debugger and continue to run program.
 
 ## Usage
 
@@ -47,8 +47,9 @@ automatically and you don't need to worry about that.
 
 ```ruby
 gem "pry"
-# Require break after pry if you automatic integration. You can require
-# "break/pry" for opt-in integration.
+
+# Require break after pry if you automatic integration. You can do
+# `gem "break", require "break/pry"` for explicit integration.
 gem "break"
 ```
 

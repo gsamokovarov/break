@@ -2,8 +2,6 @@
 
 module Break
   class StepCommand < TracePointCommand
-    command :step, aliases: :s
-
     trace :line, :call, :return, :class, :end, :b_call, :b_return
 
     def execute_trace(trace, *)

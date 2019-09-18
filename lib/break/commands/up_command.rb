@@ -2,8 +2,6 @@
 
 module Break
   class UpCommand < TracePointCommand
-    command :up, aliases: :u
-
     def execute(*)
       if context.bindings[context.depth - 2]
         super

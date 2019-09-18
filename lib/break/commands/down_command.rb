@@ -2,8 +2,6 @@
 
 module Break
   class DownCommand < TracePointCommand
-    command :down, aliases: :d
-
     def execute(*)
       if context.depth >= 0
         frontend.notify("Cannot go further down the stack")
