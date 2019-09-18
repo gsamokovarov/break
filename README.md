@@ -2,10 +2,10 @@
 
 Break is another debugging take for Ruby. It is written in plain Ruby and
 doesn't have its own frontend. Once you `require "break"`, it integrates
-seamlessly with IRB and [Pry] and you have commands like `next` (or the short-cut
-`n`) straight in your REPL sessions. You don't need to remember to start your
-debugger or change your development flow. Break embraces it, instead of forcing
-you to learn a new tool.
+seamlessly with IRB and [Pry] and you have commands like `next` straight in
+your REPL sessions. You don't need to remember to start your debugger or change
+your development flow. Break embraces it, instead of forcing you to learn a new
+tool.
 
 ## Why we need a debugger in Ruby?
 
