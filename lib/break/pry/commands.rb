@@ -15,10 +15,12 @@ module Break::Pry
       BANNER
 
       def process
-        frontend = Break::Pry::Frontend.new(_pry_)
-        session = Break::Session.new(_pry_.binding_stack.first, frontend: frontend)
+        session = Break::Session.new(_pry_.binding_stack.first, frontend: Frontend.new(_pry_))
 
-        session.execute :next
+        command = Break::NextCommand.new(session)
+        command.execute
+      ensure
+        Break::Session.start!
       end
     end
 
@@ -35,10 +37,12 @@ module Break::Pry
       BANNER
 
       def process
-        frontend = Break::Pry::Frontend.new(_pry_)
-        session = Break::Session.new(_pry_.binding_stack.first, frontend: frontend)
+        session = Break::Session.new(_pry_.binding_stack.first, frontend: Frontend.new(_pry_))
 
-        session.execute :step
+        command = Break::StepCommand.new(session)
+        command.execute
+      ensure
+        Break::Session.start!
       end
     end
 
@@ -56,10 +60,12 @@ module Break::Pry
       BANNER
 
       def process
-        frontend = Break::Pry::Frontend.new(_pry_)
-        session = Break::Session.new(_pry_.binding_stack.first, frontend: frontend)
+        session = Break::Session.new(_pry_.binding_stack.first, frontend: Frontend.new(_pry_))
 
-        session.execute :up
+        command = Break::UpCommand.new(session)
+        command.execute
+      ensure
+        Break::Session.start!
       end
     end
 
@@ -77,10 +83,12 @@ module Break::Pry
       BANNER
 
       def process
-        frontend = Break::Pry::Frontend.new(_pry_)
-        session = Break::Session.new(_pry_.binding_stack.first, frontend: frontend)
+        session = Break::Session.new(_pry_.binding_stack.first, frontend: Frontend.new(_pry_))
 
-        session.execute :down
+        command = Break::DownCommand.new(session)
+        command.execute
+      ensure
+        Break::Session.start!
       end
     end
   end

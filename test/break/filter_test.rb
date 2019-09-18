@@ -6,7 +6,7 @@ module Break
   class FilterTest < Test
     test "filters internal frames for break" do
       assert Filter.internal?("(irb)")
-      assert Filter.internal?(binding.method(:break).source_location.first)
+      assert Filter.internal?(Session.method(:start!).source_location.first)
     end
 
     test "registers new internal frames" do
