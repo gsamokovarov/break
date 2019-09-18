@@ -31,7 +31,7 @@ The following commands are available in both IRB and [Pry].
 
 Command    | Short      | Description
 -------    | ---------- | -----------
-`next`     | `n`  (irb) | Continue to next line. (In IRB, `next` is a syntax error, use `n`)
+`next`     | `n`  (irb) | Continue to next line.
 `step`     | `s`  (irb) | Step into method invocation.
 `up`       | `u`  (irb) | Go up the stack.
 `down`     | `d`  (irb) | Go down the stack.
@@ -46,7 +46,9 @@ early in your program setup. In a Rails application, `break` will be required
 automatically and you don't need to worry about that.
 
 ```ruby
-gem "pry" # Require break after pry if you want Pry integration.
+gem "pry"
+# Require break after pry if you automatic integration. You can require
+# "break/pry" for opt-in integration.
 gem "break"
 ```
 
