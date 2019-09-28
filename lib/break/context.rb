@@ -14,14 +14,6 @@ module Break
       @bindings[@depth - 1]
     end
 
-    def path
-      current_binding.source_location.first
-    end
-
-    def lineno
-      current_binding.source_location.last
-    end
-
     def inspect
       "#{path}:#{lineno}"
     end
