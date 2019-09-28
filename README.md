@@ -18,12 +18,12 @@ then again for Ruby 2.0+ at which point it's development was halted as
 maintaining 3 different implementations was not so nice.
 
 If we get better APIs in Ruby-land, we won't run into the problems [ruby-debug]
-did. Even better, the debugger can be thin layers on top of the heavy-lifting
+did. Even better, the debuggers can be thin layers on top of the heavy-lifting
 debugging instrumentation APIs that live in the interpreter themselves. This
 way the interpreter internals can change as much as they want, but if they
-still provide the same APIs, all of the debugging tools will still work. More,
-we can port our debuggers to JRuby, TruffleRuby or whatever alternative Ruby
-implementation is supported and under active development at the time.
+still provide the same APIs, all of the debugging tools will still work. On top
+of that, our debuggers will work on JRuby, TruffleRuby or whatever alternative
+Ruby implementation is under active development at the time.
 
 ## Commands
 
