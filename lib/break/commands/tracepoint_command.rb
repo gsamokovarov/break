@@ -10,6 +10,14 @@ module Break
       end
     end
 
+    def initialize(*)
+      super
+
+      @delayed_context = Fiber.new do |*args|
+        session.context!(*args)
+      end
+    end
+
     def execute(*args)
       TracePoint.trace(*trace_events) do |trace|
         next if Filter.internal?(trace.path)
@@ -25,6 +33,10 @@ module Break
     end
 
     private
+
+    def context!(*args)
+      @delayed_context.resume(*args)
+    end
 
     def trace_events
       self.class.trace_events
