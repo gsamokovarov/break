@@ -15,6 +15,10 @@ module Break
 
       @delayed_context = Fiber.new do |*args|
         session.context!(*args)
+
+        loop do
+          session.context!(*Fiber.yield)
+        end
       end
     end
 
