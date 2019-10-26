@@ -9,6 +9,7 @@ module Break::IRB
       define_command session, :step,     Break::StepCommand
       define_command session, :up,       Break::UpCommand
       define_command session, :down,     Break::DownCommand
+      define_command session, :list,     Break::ListCommand
       define_command session, :continue, Break::ContinueCommand, preserve: false
     end
 
