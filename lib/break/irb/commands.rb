@@ -20,9 +20,9 @@ module Break::IRB
         cls.new(session).execute(*args)
       ensure
         # We don't have a clear guideline of when an IRB session starts and
-        # when it ends. If we're excuting commands, we have to quit the IRB
+        # when it ends. If we're executing commands, we have to quit the IRB
         # session which naturally marks it as stopped. If we're executing a
-        # `break` command though we actually want to keep marking it as started
+        # `break` command we actually want to keep marking it as started
         # so we don't step over `binding.irb` calls.
         Break::Session.start! if preserve
       end
