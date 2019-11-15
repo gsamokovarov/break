@@ -14,7 +14,7 @@ maintenance was pretty hard. Back in the 1.8 and 1.9 days the interpreter
 itself changed more often and didn't provide a stable API to aid the writing of
 development tools. This means that [ruby-debug], a debugger written for Ruby
 1.8 had to be rewritten for 1.9 (as a different gem: [ruby-debug-base19]) and
-then again for Ruby 2.0+ at which point it's development was halted as
+then again for Ruby 2.0+ at which point its development was halted as
 maintaining 3 different implementations was not so nice.
 
 If we get better APIs in Ruby-land, we won't run into the problems [ruby-debug]
