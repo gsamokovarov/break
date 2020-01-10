@@ -34,17 +34,20 @@ early in your program setup. In a Rails application, `break` will be required
 automatically and you don't need to worry about that.
 
 ```ruby
-gem "pry"
-
-# Require break after pry if you automatic integration. You can do
-# `gem "break", require "break/pry"` for explicit integration.
 gem "break"
 ```
 
-Break automatically injects its commands into `binding.irb` (given it's already
-required). The same with [Pry], if a `require "pry"` happened _before_
-`require "break"`, break will be able to automatically integrate into
-`binding.pry` if this is you favorite debugging choice.
+Break automatically injects its commands into `binding.irb`.
+
+### Pry
+
+```ruby
+gem "pry"
+
+# Require break after pry for the automatic integration to kick in. You can do
+# `gem "break", require "break/pry"` for an explicit integration.
+gem "break"
+```
 
 ## Why we need a debugger in Ruby?
 
