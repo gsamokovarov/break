@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Genadi Samokovarov"]
   spec.email         = ["gsamokovarov@gmail.com"]
 
-  spec.summary       = "Experimental debugger in plain Ruby"
-  spec.description   = "Experimental debugger in plain Ruby using the TracePoint API"
+  spec.summary       = "Lightweight Ruby debugger"
+  spec.description   = "Lightweight Ruby debugger written in plain Ruby using the TracePoint API"
   spec.homepage      = "https://github.com/gsamokovarov/break"
   spec.license       = "MIT"
 
