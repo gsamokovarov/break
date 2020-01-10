@@ -10,6 +10,7 @@ a yet another tool.
 ## Features
 
 - Control flow executing control.
+- No runtime cost. The tracing instructions kick in only when navigating.
 - Automatic integration with IRB and Pry.
 - Rails 6 constant autoloading support (not available in other Ruby debuggers).
 
