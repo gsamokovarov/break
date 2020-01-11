@@ -16,3 +16,4 @@ Break::Filter.register_internal __dir__
 Object.prepend Break::Pry::Overrides
 
 Pry.config.commands.import Break::Pry::Commands
+Pry.config.commands.alias_command "list", "whereami"
