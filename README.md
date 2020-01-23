@@ -25,8 +25,7 @@ Command    | Description
 `up`       | Go up the stack.
 `down`     | Go down the stack.
 `list`     | Show the code surrounding the current debugged line.
-`continue` | Disconnect the debugger and continue to run program.
-`exit`     | Disconnect the debugger and continue to run program.
+`exit`     | Disconnect the debugger and continue to run the program.
 
 ## Usage
 
