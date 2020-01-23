@@ -13,4 +13,3 @@ Break::Filter.register_internal "(pry)"
 Break::Filter.register_internal __dir__
 
 Pry.config.commands.import Break::Pry::Commands
-Pry.config.commands.alias_command "where", "whereami"
