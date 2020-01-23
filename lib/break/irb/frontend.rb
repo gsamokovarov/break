@@ -43,9 +43,9 @@ module Break::IRB
     # commands support in the lexer level, we need to call the `next` command
     # in syntactically correct way.
     def special_case_next_eval(irb_context)
-      def irb_context.evaluate(line, line_no, *args)
+      def irb_context.evaluate(line, line_no, *args, **kwargs)
         line = "self.next\n" if line == "next\n"
-        super(line, line_no, *args)
+        super(line, line_no, *args, **kwargs)
       end
 
       irb_context
