@@ -24,7 +24,7 @@ Command    | Description
 `step`     | Step into method invocation.
 `up`       | Go up the stack.
 `down`     | Go down the stack.
-`list`     | Show the code surrounding the current debugged line.
+`where`    | Show the code surrounding the current debugged line.
 `exit`     | Disconnect the debugger and continue to run the program.
 
 ## Usage
