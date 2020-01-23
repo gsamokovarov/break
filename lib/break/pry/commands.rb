@@ -19,8 +19,6 @@ module Break::Pry
 
         command = Break::NextCommand.new(session)
         command.execute
-      ensure
-        Break::Session.start!
       end
     end
 
@@ -41,8 +39,6 @@ module Break::Pry
 
         command = Break::StepCommand.new(session)
         command.execute
-      ensure
-        Break::Session.start!
       end
     end
 
@@ -64,8 +60,6 @@ module Break::Pry
 
         command = Break::UpCommand.new(session)
         command.execute
-      ensure
-        Break::Session.start!
       end
     end
 
@@ -87,8 +81,6 @@ module Break::Pry
 
         command = Break::DownCommand.new(session)
         command.execute
-      ensure
-        Break::Session.start!
       end
     end
   end
