@@ -11,7 +11,7 @@ a yet another tool.
 
 - Control flow executing control.
 - No runtime cost. The tracing instructions kick in only when navigating.
-- Automatic integration with IRB and Pry.
+- Automatic integration with IRB and [Pry].
 - Rails 6 constant autoloading support (not available in other Ruby debuggers).
 
 ## Commands
@@ -37,17 +37,12 @@ automatically and you don't need to worry about that.
 gem "break"
 ```
 
-Break automatically injects its commands into `binding.irb`.
+Break automatically injects its commands into `binding.irb` and `binding.pry`
+(if available).
 
-### Pry
-
-```ruby
-gem "pry"
-
-# Require break after pry for the automatic integration to kick in. You can do
-# `gem "break", require "break/pry"` for an explicit integration.
-gem "break"
-```
+If you need to debug your program type a `next` to go to the next line of
+program execution or `step` to step into a method, block, or class/module
+opening call. All of this, in the comport of IRB or [Pry]. Simple!
 
 ## Why we need a debugger in Ruby?
 
@@ -67,7 +62,11 @@ still provide the same APIs, all of the debugging tools will still work. On top
 of that, our debuggers will work on JRuby, TruffleRuby or whatever alternative
 Ruby implementation is under active development at the time.
 
-[Tracepoint API]: https://ruby-doc.org/core-2.6.2/TracePoint.html
+Break exist to implement a functional debugger in pure Ruby using the
+[TracePoint API]. It also wants to server as a catalyst for other Ruby-land
+available APIs that are useful for implementing debugging tools.
+
+[TracePoint API]: https://ruby-doc.org/core-2.6.2/TracePoint.html
 [Pry]: https://github.com/pry/pry
 
 [ruby-debug]: https://github.com/ruby-debug/ruby-debug
