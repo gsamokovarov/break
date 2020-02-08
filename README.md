@@ -63,7 +63,7 @@ of that, our debuggers will work on JRuby, TruffleRuby or whatever alternative
 Ruby implementation is under active development at the time.
 
 Break exist to implement a functional debugger in pure Ruby using the
-[TracePoint API]. It also wants to server as a catalyst for other Ruby-land
+[TracePoint API]. It also wants to serve as a catalyst for other Ruby-land
 available APIs that are useful for implementing debugging tools.
 
 [TracePoint API]: https://ruby-doc.org/core-2.6.2/TracePoint.html
