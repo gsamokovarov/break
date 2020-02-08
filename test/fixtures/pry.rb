@@ -1,6 +1,6 @@
 $LOAD_PATH << File.expand_path("../../../lib", __FILE__)
 
-require "break/pry"
+require "break"
 
 binding.pry
 

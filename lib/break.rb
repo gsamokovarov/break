@@ -9,6 +9,6 @@ require_relative "break/filter"
 require_relative "break/binding_ext"
 
 require_relative "break/irb"
-require_relative "break/pry" if defined?(Pry)
+require_relative "break/pry"
 
 Break::Filter.register_internal __dir__
