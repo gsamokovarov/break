@@ -1,11 +1,11 @@
 # Break
 
-Break is lightweight debugger for Ruby. It's written in plain Ruby and doesn't
-have its own frontend. Once you `require "break"`, it integrates seamlessly
-with IRB or [Pry] and you have commands like `next` straight in your REPL
-session. You don't need to remember to start your debugger or change your
+Break is a lightweight debugger for Ruby. It's written in plain Ruby and
+doesn't have its own frontend. Once you `require "break"`, it integrates
+seamlessly with IRB or [Pry] and you have commands like `next` straight in your
+REPL session. You don't need to remember to start your debugger or change your
 development flow. Break embraces your flow, instead of forcing you to abide to
-a yet another tool.
+yet another tool.
 
 ## Features
 
