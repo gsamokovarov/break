@@ -42,7 +42,7 @@ Break automatically injects its commands into `binding.irb` and `binding.pry`
 
 If you need to debug your program type a `next` to go to the next line of
 program execution or `step` to step into a method, block, or class/module
-opening call. All of this, in the comport of IRB or [Pry]. Simple!
+opening call. All of this, in the comfort of IRB or [Pry]. Simple!
 
 ## Why we need a debugger in Ruby?
 
