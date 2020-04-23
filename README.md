@@ -66,8 +66,12 @@ Break exist to implement a functional debugger in pure Ruby using the
 [TracePoint API]. It also wants to serve as a catalyst for other Ruby-land
 available APIs that are useful for implementing debugging tools.
 
+Learn more from this [Ruby Russia talk]. ⚡️
+
 [TracePoint API]: https://ruby-doc.org/core-2.6.2/TracePoint.html
 [Pry]: https://github.com/pry/pry
 
 [ruby-debug]: https://github.com/ruby-debug/ruby-debug
 [ruby-debug-base19]: https://github.com/ruby-debug/ruby-debug-base19
+
+[Ruby Russia talk]: https://www.youtube.com/watch?v=3QADeUVwJtA
