@@ -56,7 +56,7 @@ module Break::Pry
       BANNER
 
       def process
-        session = Break::Session.new(_pry_.binding_stack.first, frontend: Frontend.new(_pry_))
+        session = Break::Session.new(pry_instance.binding_stack.first, frontend: Frontend.new(pry_instance))
 
         command = Break::UpCommand.new(session)
         command.execute
