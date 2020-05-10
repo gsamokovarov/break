@@ -34,7 +34,7 @@ module Break
     end
 
     test "disables the current tracing on each step over" do
-      command, session = next_command
+      command, = next_command
 
       disabled = false
       command.execute_trace trace(:line, binding: nil, disable: -> { disabled = true })
