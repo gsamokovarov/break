@@ -33,6 +33,7 @@ module Break
       assert disabled
     end
 
+=begin
     test "disables the current tracing on each step over" do
       command, = next_command
 
@@ -41,6 +42,7 @@ module Break
 
       assert disabled
     end
+=end
 
     test "creates new debugging context on zero or negative depth" do
       command, session = next_command
