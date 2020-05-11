@@ -40,7 +40,7 @@ gem "break"
 Break automatically injects its commands into `binding.irb` and `binding.pry`
 (if available).
 
-If you need to debug your program type a `next` to go to the next line of
+If you need to debug your program, type a `next` to go to the next line of
 program execution or `step` to step into a method, block, or class/module
 opening call. All of this, in the comfort of IRB or [Pry]. Simple!
 
@@ -62,7 +62,7 @@ still provide the same APIs, all of the debugging tools will still work. On top
 of that, our debuggers will work on JRuby, TruffleRuby or whatever alternative
 Ruby implementation is under active development at the time.
 
-Break exist to implement a functional debugger in pure Ruby using the
+Break exists to implement a functional debugger in pure Ruby using the
 [TracePoint API]. It also wants to serve as a catalyst for other Ruby-land
 available APIs that are useful for implementing debugging tools.
 
