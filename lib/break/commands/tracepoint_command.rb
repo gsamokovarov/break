@@ -40,6 +40,8 @@ module Break
 
     def context!(*args)
       @delayed_context.resume(*args)
+    rescue FiberError
+      session.context!(*args)
     end
 
     def trace_events
