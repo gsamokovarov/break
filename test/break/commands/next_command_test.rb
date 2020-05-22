@@ -33,15 +33,6 @@ module Break
       assert disabled
     end
 
-    test "disables the current tracing on each step over" do
-      command, session = next_command
-
-      disabled = false
-      command.execute_trace trace(:line, binding: nil, disable: -> { disabled = true })
-
-      assert disabled
-    end
-
     test "creates new debugging context on zero or negative depth" do
       command, session = next_command
 
