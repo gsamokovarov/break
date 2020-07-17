@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Break
-  VERSION = "0.11.0"
+  VERSION = "0.2.0"
 end
