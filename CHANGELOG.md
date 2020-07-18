@@ -2,7 +2,7 @@
 
 ## master (unreleased)
 
-### 0.2.0
+### 0.12.0
 
 - Support for `pry` version `0.13` and above. ([@gsamokovarov][])
 - Fix a crash in multi-threaded environments. ([@gsamokovarov][])
