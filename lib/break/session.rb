@@ -8,6 +8,7 @@ module Break
     def initialize(binding, frontend:)
       @contexts = [Context.new(binding)]
       @frontend = frontend
+      @metadata = {}
     end
 
     def enter
@@ -25,6 +26,14 @@ module Break
     def context!(*bindings, depth: 0)
       contexts << Context.new(*bindings, depth: depth)
       enter
+    end
+
+    def [](key)
+      @metadata[key]
+    end
+
+    def []=(key, value)
+      @metadata[key] = value
     end
   end
 end
