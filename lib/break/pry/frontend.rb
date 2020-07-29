@@ -2,12 +2,12 @@
 
 module Break::Pry
   class Frontend
-    def initialize(pry)
-      @pry = pry
-    end
-
     def attach(session)
-      @pry = Pry.start(session.context.binding)
+      previous_pry = session[:pry_instance]
+
+      @pry = Pry.start session.context.binding, __break_session__: session,
+                                                input: previous_pry.input,
+                                                output: previous_pry.output
       where
     end
 

@@ -16,9 +16,10 @@ module Break::Pry
 
       def process
         pry = defined?(pry_instance) ? pry_instance : _pry_
-        session = Break::Session.new(pry.binding_stack.first, frontend: Frontend.new(pry))
+        pry.__break_session__[:pry_instance] = pry
 
-        command = Break::NextCommand.new(session)
+
+        command = Break::NextCommand.new(pry.__break_session__)
         command.execute
       end
     end
@@ -37,9 +38,9 @@ module Break::Pry
 
       def process
         pry = defined?(pry_instance) ? pry_instance : _pry_
-        session = Break::Session.new(pry.binding_stack.first, frontend: Frontend.new(pry))
+        pry.__break_session__[:pry_instance] = pry
 
-        command = Break::StepCommand.new(session)
+        command = Break::StepCommand.new(pry.__break_session__)
         command.execute
       end
     end
@@ -59,9 +60,9 @@ module Break::Pry
 
       def process
         pry = defined?(pry_instance) ? pry_instance : _pry_
-        session = Break::Session.new(pry.binding_stack.first, frontend: Frontend.new(pry))
+        pry.__break_session__[:pry_instance] = pry
 
-        command = Break::UpCommand.new(session)
+        command = Break::UpCommand.new(pry.__break_session__)
         command.execute
       end
     end
@@ -81,9 +82,9 @@ module Break::Pry
 
       def process
         pry = defined?(pry_instance) ? pry_instance : _pry_
-        session = Break::Session.new(pry.binding_stack.first, frontend: Frontend.new(pry))
+        pry.__break_session__[:pry_instance] = pry
 
-        command = Break::DownCommand.new(session)
+        command = Break::DownCommand.new(pry.__break_session__)
         command.execute
       end
     end
