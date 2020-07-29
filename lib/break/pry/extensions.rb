@@ -23,9 +23,10 @@ begin
     end
 
     module PryRemoteServerExtensions
-      def initialize(*args)
-        super(*args)
-      rescue Errno::EADDRINUSE
+      def initialize(*)
+        Break::Pry.current_remote_server&.teardown
+
+        super
       end
 
       def run
@@ -38,12 +39,9 @@ begin
       end
 
       def teardown
-        return if @teardowned
-
         super
-
+      ensure
         Break::Pry.current_remote_server = nil
-        @teardowned = true
       end
     end
   end
