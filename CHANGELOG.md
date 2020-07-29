@@ -2,7 +2,12 @@
 
 ## master (unreleased)
 
-### 0.12.0
+### 0.20.0 (2020-07-17)
+
+- Fix `up` and `down` commands in `pry`. ([@gsamokovarov][])
+- Support for `pry-remote`. ([@gsamokovarov][])
+
+### 0.12.0 (2020-07-17)
 
 - Support for `pry` version `0.13` and above. ([@gsamokovarov][])
 - Fix a crash in multi-threaded environments. ([@gsamokovarov][])
