@@ -24,8 +24,15 @@ begin
 
     module PryRemoteServerExtensions
       def initialize(*args)
+        @tries = 1
+
         super(*args)
       rescue Errno::EADDRINUSE
+        Break::Pry.current_remote_server&.teardown
+        Break::Pry.current_remote_server = nil
+
+        @tries -= 1
+        retry if @tries >= 0
       end
 
       def run
