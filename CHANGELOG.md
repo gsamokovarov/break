@@ -2,7 +2,7 @@
 
 ## master (unreleased)
 
-### 0.20.0 (2020-07-17)
+### 0.20.0 (2020-07-30)
 
 - Fix `up` and `down` commands in `pry`. ([@gsamokovarov][])
 - Support for `pry-remote`. ([@gsamokovarov][])
