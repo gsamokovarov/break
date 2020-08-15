@@ -4,7 +4,7 @@ module Break::Pry
   module PryExtensions
     attr_accessor :__break_session__
 
-    def initialize(options)
+    def initialize(options = {})
       super(options)
 
       @__break_session__ = options[:__break_session__]
