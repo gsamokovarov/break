@@ -5,17 +5,17 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "break/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "break"
-  spec.version       = Break::VERSION
-  spec.authors       = ["Genadi Samokovarov"]
-  spec.email         = ["gsamokovarov@gmail.com"]
+  spec.name        = "break"
+  spec.version     = Break::VERSION
+  spec.authors     = ["Genadi Samokovarov"]
+  spec.email       = ["gsamokovarov@gmail.com"]
 
-  spec.summary       = "Lightweight Ruby debugger"
-  spec.description   = "Lightweight Ruby debugger written in plain Ruby using the TracePoint API"
-  spec.homepage      = "https://github.com/gsamokovarov/break"
-  spec.license       = "MIT"
+  spec.summary     = "Lightweight Ruby debugger"
+  spec.description = "Lightweight Ruby debugger written in plain Ruby using the TracePoint API"
+  spec.homepage    = "https://github.com/gsamokovarov/break"
+  spec.license     = "MIT"
 
-  spec.files         = Dir["lib/**/*"]
+  spec.files       = Dir["CHANGELOG.md", "Rakefile", "README.md", "LICENSE.txt", "lib/**/*"]
 
   spec.required_ruby_version = ">= 2.5.0"
 
