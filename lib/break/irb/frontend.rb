@@ -10,13 +10,7 @@ module Break::IRB
 
     def attach(session)
       @workspace = IRB::WorkSpace.new(session.context.binding)
-
-      begin
-        @irb = IRB::Irb.new(@workspace)
-        @irb.context.main.extend Commands.new(session)
-      rescue TypeError
-        return
-      end
+      @irb = safetely_build_irb_instance(session, @workspace)
 
       where
 
@@ -49,6 +43,25 @@ module Break::IRB
       end
 
       irb_context
+    end
+
+    # Trying to instantiate an `IRB:Irb` object with a workspace having a
+    # binding coming from `BasicObject`.
+    def safetely_build_irb_instance(session, workspace)
+      irb = IRB::Irb.allocate
+      irb.instance_variable_set :@context, IRB::Context.new(irb, workspace, nil)
+      irb.instance_variable_set :@signal_status, :IN_IRB
+      irb.instance_variable_set :@scanner, RubyLex.new
+
+      begin
+        irb.context.main.extend IRB::ExtendCommandBundle
+      rescue NameError, TypeError
+        # Potential `NameError`: undefined method `irb_print_working_workspace' for class `#<Class:#420>'.
+        # Ignore it.
+      end
+
+      irb.context.main.extend Commands.new(session)
+      irb
     end
   end
 end
