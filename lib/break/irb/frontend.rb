@@ -10,7 +10,7 @@ module Break::IRB
 
     def attach(session)
       @workspace = IRB::WorkSpace.new(session.context.binding)
-      @irb = safetely_build_irb_instance(session, @workspace)
+      @irb = safely_build_irb_instance(session, @workspace)
 
       where
 
@@ -47,7 +47,7 @@ module Break::IRB
 
     # Trying to instantiate an `IRB:Irb` object with a workspace having a
     # binding coming from `BasicObject`.
-    def safetely_build_irb_instance(session, workspace)
+    def safely_build_irb_instance(session, workspace)
       irb = IRB::Irb.allocate
       irb.instance_variable_set :@context, IRB::Context.new(irb, workspace, nil)
       irb.instance_variable_set :@signal_status, :IN_IRB
