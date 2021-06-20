@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 0.30.0 (2021-06-20)
+### Added
+- Officially Ruby 3.0 support. ([@gsamokovarov][])
+### Fixed
+- Fix broken `next` command for Ruby 2.7+. ([@gsamokovarov][])
+- Fix circular require for `pry` integrations. ([@gsamokovarov][])
+
 ## 0.21.0 (2020-08-19)
 ### Fixed
 - Fix broken `pry` commands like `ls`. ([@jamesfischer8][])
