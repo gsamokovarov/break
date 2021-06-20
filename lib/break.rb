@@ -12,3 +12,4 @@ require_relative "break/irb"
 require_relative "break/pry"
 
 Break::Filter.register_internal __dir__
+Break::Filter.register_internal "<internal:"
