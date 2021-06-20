@@ -2,7 +2,6 @@
 
 begin
   require "pry"
-  require "break"
 
   require_relative "pry/frontend"
   require_relative "pry/commands"
