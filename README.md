@@ -1,18 +1,23 @@
 # Break
 
 Break is a lightweight debugger for Ruby. It's written in plain Ruby and
-doesn't have its own frontend. Once you `require "break"`, it integrates
-seamlessly with IRB or [Pry] and you have commands like `next` straight in your
-REPL session. You don't need to remember to start your debugger or change your
-development flow. Break embraces your flow, instead of forcing you to abide to
-yet another tool.
+doesn't have its own frontend. Once you put `gem "break"` in your `Gemfile`, it
+integrates seamlessly with IRB or [Pry]. You have navigational commands like
+`next` and `step` straight in your REPL session. You don't need to remember to
+start your debugger or change your development flow. Break embraces your flow,
+instead of forcing you to abide to yet another tool.
 
 ## Features
 
 - Control flow executing control.
 - No runtime cost. The tracing instructions kick in only when navigating.
 - Automatic integration with IRB and [Pry].
-- Rails 6 constant autoloading support (not available in other Ruby debuggers).
+- Rails 6 constant auto loading support (not available in other Ruby debuggers).
+
+## Installation
+
+Put `gem "break"` in your `Gemfile`. Then run `bundle install` and
+`binding.irb` (or `binding.pry`) to your heart's desire.
 
 ## Commands
 
@@ -46,20 +51,19 @@ opening call. All of this, in the comfort of IRB or [Pry]. Simple!
 
 ## Why we need a debugger in Ruby?
 
-We had our fair share of abandoned Ruby debuggers written in C because their
-maintenance was pretty hard. Back in the 1.8 and 1.9 days the interpreter
-itself changed more often and didn't provide a stable API to aid the writing of
-development tools. This means that [ruby-debug], a debugger written for Ruby
-1.8 had to be rewritten for 1.9 (as a different gem: [ruby-debug-base19]) and
-then again for Ruby 2.0+ at which point its development was halted as
-maintaining 3 different implementations was not so nice.
+We had our fair share of abandoned Ruby debuggers written in C. During Ruby 1.8
+and Ruby 1.9 days, the interpreter itself changed often and didn't provide a
+stable API to aid the writing of development tools. This means that
+[ruby-debug], a debugger written for Ruby 1.8 had to be rewritten for 1.9 (as a
+different gem: [ruby-debug-base19]) and then again for Ruby 2.0. At this point
+the development was halted as maintaining 3 different implementations is hard.
 
-If we get better APIs in Ruby-land, we won't run into the problems [ruby-debug]
+If we get better APIs in Ruby-land we won't run into the problems [ruby-debug]
 did. Even better, the debuggers can be thin layers on top of the heavy-lifting
 debugging instrumentation APIs that live in the interpreter themselves. This
-way the interpreter internals can change as much as they want, but if they
-still provide the same APIs, all of the debugging tools will still work. On top
-of that, our debuggers will work on JRuby, TruffleRuby or whatever alternative
+way the interpreter internals can change as much as they want but if they
+provide the same APIs, all of the debugging tools will still work. On top of
+that, our debuggers will work on JRuby, TruffleRuby or whatever alternative
 Ruby implementation is under active development at the time.
 
 Break exists to implement a functional debugger in pure Ruby using the
