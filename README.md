@@ -49,6 +49,18 @@ If you need to debug your program, type a `next` to go to the next line of
 program execution or `step` to step into a method, block, or class/module
 opening call. All of this, in the comfort of IRB or [Pry]. Simple!
 
+## Remote usage
+
+Break can integrate with `pry-remote` for remote process debugging. You have to
+require `break/remote` for Break's integration to kick in.
+
+You can declare `break` in your `Gemfile` with a custom `require` to get the
+remote integration loaded automatically by Bundler:
+
+```ruby
+gem "break", require: "break/remote"
+```
+
 ## Why we need a debugger in Ruby?
 
 We had our fair share of abandoned Ruby debuggers written in C. During Ruby 1.8

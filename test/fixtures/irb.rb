@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "looksee"
 require_relative "../../lib/break"
 
 binding.irb

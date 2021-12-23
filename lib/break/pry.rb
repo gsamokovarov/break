@@ -19,19 +19,6 @@ begin
   end
 
   Pry.config.commands.import Break::Pry::Commands
-
-  begin
-    require "pry-remote"
-
-    Break::Filter.register_internal binding.method(:remote_pry).source_location.first.chomp('.rb')
-    Break::Filter.register_internal DRb.method(:start_service).source_location.first.chomp('/drb.rb')
-
-    at_exit do
-      Break::Pry.current_remote_server&.teardown
-    end
-  rescue LoadError
-    # Do nothing if we cannot require pry-remote.
-  end
 rescue LoadError
   # Do nothing if we cannot require pry.
 end
