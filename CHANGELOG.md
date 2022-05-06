@@ -1,10 +1,8 @@
 # Changelog
 
-## 0.40.0 (2021-12-23)
+## 0.40.0 (2022-05-06)
 ### Changed
 - Remote integration (`pry-remote`) needs to be manually activated by requiring `break/remote` ([@gsamokovarov][])
-
-## Unreleased
 
 ## 0.30.0 (2021-06-20)
 ### Added
